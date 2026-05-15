@@ -1,13 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Click Maps</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Leader Draft</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #fff; font-family: Arial, sans-serif; }
+#tabs { display: flex; background: #111; }
+.tab { flex: 1; padding: 14px; text-align: center; cursor: pointer; font-family: Arial Black, sans-serif; font-size: 1rem; letter-spacing: 2px; color: #888; border-bottom: 4px solid transparent; }
+.tab.active { color: #FFE000; border-bottom-color: #FFE000; }
+.panel { display: none; padding: 8px; }
+.panel.active { display: block; }
+#status { text-align: center; padding: 8px; font-family: Arial Black, sans-serif; font-size: 1rem; letter-spacing: 2px; margin-bottom: 6px; background: #111; color: #FFE000; }
+.row { display: flex; align-items: center; margin-bottom: 4px; }
+.dollar { font-family: Arial Black, Impact, sans-serif; font-size: 8vw; font-weight: 900; color: #111; width: 10vw; min-width: 55px; text-align: center; flex-shrink: 0; }
+.cards { display: flex; flex: 1; gap: 3px; }
+.card { flex: 1; position: relative; cursor: pointer; overflow: hidden; aspect-ratio: 1; }
+.card img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; pointer-events: none; }
+.label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.85)); padding: 30% 4px 5px; }
+.name { font-weight: 700; font-size: clamp(8px,1.1vw,14px); color: #FFE000; text-transform: uppercase; letter-spacing: 1px; text-shadow: 1px 1px 2px #000; }
+.sub  { font-size: clamp(6px,0.75vw,10px); color: #ddd; text-transform: uppercase; letter-spacing: 1px; text-shadow: 1px 1px 2px #000; margin-top: 1px; }
+.card.on  { outline: 4px solid #FFE000; outline-offset: -4px; }
+.card.off { opacity: 0.25; cursor: not-allowed; }
+#submit-section { display: none; margin-top: 12px; border: 4px solid #FFE000; padding: 16px; text-align: center; }
+#submit-section h2 { font-family: Arial Black, sans-serif; letter-spacing: 3px; margin-bottom: 12px; }
+#result-picks { display: flex; gap: 10px; justify-content: center; margin-bottom: 16px; }
+.pick { flex: 1; max-width: 200px; border: 2px solid #ddd; overflow: hidden; }
+.pick img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: center top; display: block; }
+.pick-info { padding: 6px; text-align: center; }
+.pick-name { font-family: Arial Black, sans-serif; font-size: clamp(10px,1.2vw,14px); text-transform: uppercase; }
+.pick-sub  { font-size: 10px; color: #666; text-transform: uppercase; margin-top: 2px; }
+.pick-cost { font-family: Arial Black, sans-serif; font-size: 1.4rem; margin-top: 3px; }
+#name-row { display: flex; gap: 8px; justify-content: center; align-items: center; flex-wrap: wrap; }
+#player-name { padding: 10px 16px; font-size: 1rem; font-family: Arial, sans-serif; border: 2px solid #111; width: 240px; letter-spacing: 1px; }
+#submit-btn, #reset-btn { padding: 10px 24px; font-family: Arial Black, sans-serif; font-size: 13px; letter-spacing: 2px; border: none; cursor: pointer; }
+#submit-btn { background: #FFE000; color: #111; }
+#submit-btn:hover { background: #ffd000; }
+#reset-btn  { background: #111; color: #fff; }
+#submit-btn:disabled { background: #ccc; cursor: not-allowed; }
+#submit-msg { margin-top: 10px; font-size: 13px; font-weight: bold; min-height: 20px; }
+#lb-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 4px; margin-bottom: 8px; }
+#lb-header h2 { font-family: Arial Black, sans-serif; letter-spacing: 3px; }
+#refresh-btn { padding: 7px 18px; font-family: Arial Black, sans-serif; font-size: 12px; letter-spacing: 1px; background: #111; color: #fff; border: none; cursor: pointer; }
+#lb-stats { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+.stat-box { flex: 1; min-width: 120px; background: #111; color: #FFE000; padding: 10px; text-align: center; }
+.stat-num { font-family: Arial Black, sans-serif; font-size: 1.8rem; line-height: 1; }
+.stat-label { font-size: 10px; letter-spacing: 2px; color: #aaa; margin-top: 3px; text-transform: uppercase; }
+#lb-table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead { background: #111; color: #FFE000; }
+th { padding: 10px 8px; text-align: left; font-family: Arial Black, sans-serif; letter-spacing: 1px; font-size: 11px; white-space: nowrap; }
+td { padding: 8px; border-bottom: 1px solid #eee; vertical-align: middle; }
+tr:hover td { background: #fffde7; }
+.pick-chips { display: flex; gap: 4px; flex-wrap: wrap; }
+.chip { background: #111; color: #FFE000; font-size: 10px; font-weight: 700; padding: 3px 7px; letter-spacing: 0.5px; white-space: nowrap; }
+.chip span { color: #aaa; font-weight: 400; }
+#popular { margin-top: 16px; }
+#popular h3 { font-family: Arial Black, sans-serif; letter-spacing: 2px; margin-bottom: 8px; font-size: 1rem; }
+.pop-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.pop-bar-wrap { flex: 1; background: #eee; height: 22px; }
+.pop-bar { background: #FFE000; height: 100%; min-width: 4px; }
+.pop-label { font-size: 12px; font-weight: bold; min-width: 160px; }
+.pop-count { font-size: 12px; color: #666; min-width: 40px; text-align: right; }
+#lb-empty { text-align: center; padding: 40px; color: #aaa; font-size: 14px; letter-spacing: 2px; }
+</style>
 </head>
 <body>
-    <div id="click-area"></div>
-    <script src="clicks.js"></script>
+
+<div id="tabs">
+  <div class="tab active" onclick="showTab('draft')">DRAFT BOARD</div>
+  <div class="tab"        onclick="showTab('lb')">LEADERBOARD</div>
+</div>
+
+<div id="panel-draft" class="panel active">
+  <div id="status">WORLD LEADER DRAFT — $10 BUDGET · PICK 3</div>
+  <div id="grid"></div>
+  <div id="submit-section">
+    <h2>YOUR TEAM</h2>
+    <div id="result-picks"></div>
+    <div id="name-row">
+      <input id="player-name" type="text" placeholder="Enter your name..." maxlength="40">
+      <button id="submit-btn" onclick="submitDraft()">SUBMIT DRAFT</button>
+      <button id="reset-btn"  onclick="resetDraft()">↺ RESET</button>
+    </div>
+    <div id="submit-msg"></div>
+  </div>
+</div>
+
+<div id="panel-lb" class="panel">
+  <div id="lb-header">
+    <h2>ALL DRAFTS</h2>
+    <button id="refresh-btn" onclick="loadLeaderboard()">↺ REFRESH</button>
+  </div>
+  <div id="lb-stats"></div>
+  <div id="lb-table-wrap"></div>
+  <div id="popular"></div>
+</div>
+
+<script>
+// ← paste your Worker URL here after deploying it
+const WORKER = "https://leader-draft.YOUR-SUBDOMAIN.workers.dev";
+
+const ALL = [
+  {id:1, n:"Abraham Lincoln",       c:"USA",          y:"1861-65",         $:5, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Abraham_Lincoln_O-77_matte_collodion_print.jpg/300px-Abraham_Lincoln_O-77_matte_collodion_print.jpg"},
+  {id:2, n:"Franklin D. Roosevelt", c:"USA",          y:"1933-45",         $:5, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/FDR_1944_Color_Portrait.jpg/300px-FDR_1944_Color_Portrait.jpg"},
+  {id:3, n:"Alexander the Great",   c:"Macedon",      y:"336-323 BC",      $:5, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Alexander_the_Great_mosaic.jpg/300px-Alexander_the_Great_mosaic.jpg"},
+  {id:4, n:"Nelson Mandela",         c:"South Africa", y:"1994-99",         $:5, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Nelson_Mandela-2008_%28edit%29.jpg/300px-Nelson_Mandela-2008_%28edit%29.jpg"},
+  {id:5, n:"Lee Kuan Yew",           c:"Singapore",    y:"1959-90",         $:5, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Lee_Kuan_Yew%2C_ca._1985.jpg/300px-Lee_Kuan_Yew%2C_ca._1985.jpg"},
+  {id:6, n:"Mahatma Gandhi",         c:"India",        y:"1915-48",         $:4, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Mahatma-Gandhi%2C_studio%2C_1931.jpg/300px-Mahatma-Gandhi%2C_studio%2C_1931.jpg"},
+  {id:7, n:"Mustafa Kemal Ataturk",  c:"Turkey",       y:"1923-38",         $:4, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Mustafa_Kemal_Atat%C3%BCrk_%281932%29.jpg/300px-Mustafa_Kemal_Atat%C3%BCrk_%281932%29.jpg"},
+  {id:8, n:"Winston Churchill",      c:"UK",           y:"1940-55",         $:4, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sir_Winston_Churchill_-_19086236948.jpg/300px-Sir_Winston_Churchill_-_19086236948.jpg"},
+  {id:9, n:"Julius Caesar",          c:"Rome",         y:"49-44 BC",        $:4, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Gaius_Iulius_Caesar_%28100-44_BC%29.jpg/300px-Gaius_Iulius_Caesar_%28100-44_BC%29.jpg"},
+  {id:10,n:"Marcus Aurelius",        c:"Rome",         y:"161-180",         $:4, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Bust_of_Marcus_Aurelius%2C_Musei_Capitolini_%28inv._MC279%29.jpg/300px-Bust_of_Marcus_Aurelius%2C_Musei_Capitolini_%28inv._MC279%29.jpg"},
+  {id:11,n:"Napoleon Bonaparte",     c:"France",       y:"1804-14",         $:3, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/David_-_Napoleon_crossing_the_Alps_-_Schloss_Charlottenburg.jpg/300px-David_-_Napoleon_crossing_the_Alps_-_Schloss_Charlottenburg.jpg"},
+  {id:12,n:"Genghis Khan",           c:"Mongolia",     y:"1206-27",         $:3, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/YuanEmperorAlbumGenghisPortrait.jpg/300px-YuanEmperorAlbumGenghisPortrait.jpg"},
+  {id:13,n:"Elizabeth I",            c:"England",      y:"1558-1603",       $:3, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Elizabeth_I_%28Armada_Portrait%29.jpg/300px-Elizabeth_I_%28Armada_Portrait%29.jpg"},
+  {id:14,n:"Margaret Thatcher",      c:"UK",           y:"1979-90",         $:3, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Margaret_Thatcher.png/300px-Margaret_Thatcher.png"},
+  {id:15,n:"Otto von Bismarck",      c:"Germany",      y:"1871-90",         $:3, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Bismarck_in_1894.jpg/300px-Bismarck_in_1894.jpg"},
+  {id:16,n:"Cleopatra",              c:"Egypt",        y:"51-30 BC",        $:2, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Kleopatra-VII.-Altes-Museum-Berlin1.jpg/300px-Kleopatra-VII.-Altes-Museum-Berlin1.jpg"},
+  {id:17,n:"Henry VIII",             c:"England",      y:"1509-47",         $:2, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Hans_Holbein%2C_the_Younger_-_Portrait_of_Henry_VIII_-_Google_Art_Project.jpg/300px-Hans_Holbein%2C_the_Younger_-_Portrait_of_Henry_VIII_-_Google_Art_Project.jpg"},
+  {id:18,n:"John F. Kennedy",        c:"USA",          y:"1961-63",         $:2, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/John_F._Kennedy%2C_White_House_color_photo_portrait.jpg/300px-John_F._Kennedy%2C_White_House_color_photo_portrait.jpg"},
+  {id:19,n:"Mao Zedong",             c:"China",        y:"1949-76",         $:2, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Mao_Zedong_1963_%28cropped%29.jpg/300px-Mao_Zedong_1963_%28cropped%29.jpg"},
+  {id:20,n:"Donald Trump",           c:"USA",          y:"2017-21 & 2025-", $:2, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Donald_Trump_official_portrait.jpg/300px-Donald_Trump_official_portrait.jpg"},
+  {id:21,n:"Adolf Hitler",           c:"Germany",      y:"1933-45",         $:1, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/300px-Hitler_portrait_crop.jpg"},
+  {id:22,n:"Joseph Stalin",          c:"USSR",         y:"1924-53",         $:1, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Stalin_Full_image.jpg/300px-Stalin_Full_image.jpg"},
+  {id:23,n:"Saddam Hussein",         c:"Iraq",         y:"1979-2003",       $:1, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Saddam_Hussein_at_trial%2C_July_2004-edit1.jpeg/300px-Saddam_Hussein_at_trial%2C_July_2004-edit1.jpeg"},
+  {id:24,n:"Pol Pot",                c:"Cambodia",     y:"1975-79",         $:1, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Pol_Pot.jpg/300px-Pol_Pot.jpg"},
+  {id:25,n:"Vladimir Putin",         c:"Russia",       y:"2000-present",    $:1, img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Vladimir_Putin_%282023%29_03.jpg/300px-Vladimir_Putin_%282023%29_03.jpg"},
+];
+
+let sel = [];
+const spent = () => sel.reduce((s,id) => s + ALL.find(l=>l.id===id).$, 0);
+const rem   = () => 10 - spent();
+
+function toggle(id) {
+  const i = sel.indexOf(id);
+  if (i > -1) { sel.splice(i,1); render(); return; }
+  const l = ALL.find(l=>l.id===id);
+  if (sel.length >= 3 || l.$ > rem()) return;
+  sel.push(id); render();
+}
+
+function render() {
+  const r = rem(), done = sel.length===3 && spent()===10;
+  document.getElementById('status').textContent =
+    done ? '✓ TEAM COMPLETE — ENTER YOUR NAME BELOW' :
+    'BUDGET: $' + r + '  ·  PICKS: ' + sel.length + '/3';
+
+  document.getElementById('grid').innerHTML = [5,4,3,2,1].map(cost => {
+    const cards = ALL.filter(l=>l.$===cost).map(l => {
+      const on  = sel.includes(l.id);
+      const off = !on && (l.$ > r || sel.length >= 3);
+      return `<div class="card${on?' on':''}${off?' off':''}" onclick="toggle(${l.id})">
+        <img src="${l.img}" alt="${l.n}">
+        <div class="label">
+          <div class="name">${l.n}</div>
+          <div class="sub">${l.c} · ${l.y}</div>
+        </div>
+      </div>`;
+    }).join('');
+    return `<div class="row"><div class="dollar">$${cost}</div><div class="cards">${cards}</div></div>`;
+  }).join('');
+
+  const ss = document.getElementById('submit-section');
+  if (done) {
+    document.getElementById('result-picks').innerHTML = sel.map(id => {
+      const l = ALL.find(l=>l.id===id);
+      return `<div class="pick"><img src="${l.img}" alt="${l.n}">
+        <div class="pick-info">
+          <div class="pick-name">${l.n}</div>
+          <div class="pick-sub">${l.c} · ${l.y}</div>
+          <div class="pick-cost">$${l.$}</div>
+        </div></div>`;
+    }).join('');
+    ss.style.display = 'block';
+    document.getElementById('submit-msg').textContent = '';
+    document.getElementById('submit-btn').disabled = false;
+    ss.scrollIntoView({behavior:'smooth'});
+  } else {
+    ss.style.display = 'none';
+  }
+}
+
+function resetDraft() {
+  sel = [];
+  document.getElementById('player-name').value = '';
+  document.getElementById('submit-msg').textContent = '';
+  render();
+}
+
+async function submitDraft() {
+  const name = document.getElementById('player-name').value.trim();
+  if (!name) { document.getElementById('submit-msg').textContent = 'Please enter your name.'; return; }
+  const btn = document.getElementById('submit-btn');
+  const msg = document.getElementById('submit-msg');
+  btn.disabled = true;
+  msg.style.color = '#111';
+  msg.textContent = 'Saving...';
+  try {
+    const res = await fetch(WORKER, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name,
+        picks: sel.map(id => { const l = ALL.find(l=>l.id===id); return {id:l.id,name:l.n,country:l.c,years:l.y,cost:l.$}; }),
+        total: spent(),
+        timestamp: new Date().toISOString()
+      })
+    });
+    if (!res.ok) throw new Error('Worker responded ' + res.status);
+    msg.style.color = 'green';
+    msg.textContent = '✓ Draft saved! Check the Leaderboard tab.';
+    sel = []; render();
+  } catch(e) {
+    msg.style.color = 'red';
+    msg.textContent = '✗ ' + e.message;
+    btn.disabled = false;
+  }
+}
+
+async function loadLeaderboard() {
+  document.getElementById('lb-table-wrap').innerHTML = '<div id="lb-empty">Loading...</div>';
+  document.getElementById('lb-stats').innerHTML = '';
+  document.getElementById('popular').innerHTML = '';
+  let data;
+  try {
+    const res = await fetch(WORKER);
+    const json = await res.json();
+    data = json.data || json;
+  } catch(e) {
+    document.getElementById('lb-table-wrap').innerHTML = '<div id="lb-empty">Error loading. Is the Worker URL set?</div>';
+    return;
+  }
+  if (!data.length) { document.getElementById('lb-table-wrap').innerHTML = '<div id="lb-empty">NO DRAFTS YET — BE THE FIRST!</div>'; return; }
+
+  const counts = {};
+  data.forEach(d => d.picks.forEach(p => { counts[p.name] = (counts[p.name]||0)+1; }));
+  const top = Object.entries(counts).sort((a,b)=>b[1]-a[1])[0];
+
+  document.getElementById('lb-stats').innerHTML = `
+    <div class="stat-box"><div class="stat-num">${data.length}</div><div class="stat-label">Total Drafts</div></div>
+    <div class="stat-box"><div class="stat-num">${Object.keys(counts).length}</div><div class="stat-label">Leaders Picked</div></div>
+    <div class="stat-box" style="flex:2"><div class="stat-num" style="font-size:1.1rem;margin-top:4px">${top[0]}</div><div class="stat-label">Most Popular (${top[1]}x)</div></div>`;
+
+  document.getElementById('lb-table-wrap').innerHTML = `<table>
+    <thead><tr><th>NAME</th><th>PICKS</th><th>TOTAL</th><th>DATE</th></tr></thead>
+    <tbody>${[...data].reverse().map(d=>`<tr>
+      <td style="font-weight:700">${d.name}</td>
+      <td><div class="pick-chips">${d.picks.map(p=>`<div class="chip">${p.name} <span>$${p.cost}</span></div>`).join('')}</div></td>
+      <td style="text-align:center;font-family:Arial Black,sans-serif">$${d.total}</td>
+      <td style="color:#aaa;font-size:11px">${new Date(d.timestamp).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}</td>
+    </tr>`).join('')}</tbody></table>`;
+
+  const max = Math.max(...Object.values(counts));
+  document.getElementById('popular').innerHTML = `<h3>MOST DRAFTED LEADERS</h3>` +
+    Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,10).map(([n,c])=>
+      `<div class="pop-row">
+        <div class="pop-label">${n}</div>
+        <div class="pop-bar-wrap"><div class="pop-bar" style="width:${Math.round(c/max*100)}%"></div></div>
+        <div class="pop-count">${c}x</div>
+      </div>`).join('');
+}
+
+function showTab(id) {
+  document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',['draft','lb'][i]===id));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  if (id==='lb') loadLeaderboard();
+}
+
+render();
+</script>
 </body>
 </html>
