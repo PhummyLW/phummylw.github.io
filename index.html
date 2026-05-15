@@ -190,7 +190,7 @@ const spent = () => sel.reduce((s,id) => s + ALL.find(l=>l.id===id).$, 0);
 const rem   = () => 10 - spent();
 
 function imgTag(src, alt, cls='') {
-  return `<img src="${src}" alt="${alt}" ${cls ? `class="${cls}"` : ''}>`;
+  return `<img src="${src}" alt="${alt}" crossorigin="anonymous" ${cls ? `class="${cls}"` : ''}>`;
 }
 
 function toggle(id) {
