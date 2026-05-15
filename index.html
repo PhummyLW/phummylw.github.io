@@ -32,7 +32,7 @@ body { background: #fff; font-family: Arial, sans-serif; overflow-x: hidden; }
 
 #grid {
   width: 100%;
-  max-width: 900px;
+  max-width: 1150px;
   display: flex;
   flex-direction: column;
   gap: 3px;
@@ -61,7 +61,7 @@ body { background: #fff; font-family: Arial, sans-serif; overflow-x: hidden; }
 .card.off { opacity: 0.25; cursor: not-allowed; }
 
 /* Submit section */
-#submit-section { display: none; border: 4px solid #FFE000; padding: 16px; text-align: center; margin: 6px auto; max-width: 900px; }
+#submit-section { display: none; border: 4px solid #FFE000; padding: 16px; text-align: center; margin: 6px auto; max-width: 1150px; }
 #submit-section h2 { font-family: Arial Black, sans-serif; letter-spacing: 3px; margin-bottom: 12px; }
 #result-picks { display: flex; gap: 10px; justify-content: center; margin-bottom: 16px; }
 .pick { flex: 1; max-width: 200px; border: 2px solid #ddd; overflow: hidden; }
@@ -81,7 +81,7 @@ body { background: #fff; font-family: Arial, sans-serif; overflow-x: hidden; }
 
 /* Leaderboard */
 #panel-lb.active { height: calc(100vh - 46px); overflow-y: auto; padding: 8px; }
-#lb-inner { max-width: 900px; margin: 0 auto; }
+#lb-inner { max-width: 1150px; margin: 0 auto; }
 #lb-header { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; margin-bottom: 8px; }
 #lb-header h2 { font-family: Arial Black, sans-serif; letter-spacing: 3px; }
 #refresh-btn { padding: 7px 18px; font-family: Arial Black, sans-serif; font-size: 12px; letter-spacing: 1px; background: #111; color: #fff; border: none; cursor: pointer; }
@@ -190,7 +190,7 @@ const spent = () => sel.reduce((s,id) => s + ALL.find(l=>l.id===id).$, 0);
 const rem   = () => 10 - spent();
 
 function imgTag(src, alt, cls='') {
-  return `<img src="${src}" alt="${alt}" crossorigin="anonymous" referrerpolicy="no-referrer" ${cls ? `class="${cls}"` : ''}>`;
+  return `<img src="${src}" alt="${alt}" ${cls ? `class="${cls}"` : ''}>`;
 }
 
 function toggle(id) {
