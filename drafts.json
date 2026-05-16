@@ -418,5 +418,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T07:58:06.298Z"
+  },
+  {
+    "name": "Free",
+    "picks": [
+      {
+        "id": 15,
+        "name": "Otto von Bismarck",
+        "country": "Germany",
+        "years": "1871-90",
+        "cost": 3
+      },
+      {
+        "id": 5,
+        "name": "Lee Kuan Yew",
+        "country": "Singapore",
+        "years": "1959-90",
+        "cost": 5
+      },
+      {
+        "id": 16,
+        "name": "Cleopatra",
+        "country": "Egypt",
+        "years": "51-30 BC",
+        "cost": 2
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T07:58:38.354Z"
   }
 ]
