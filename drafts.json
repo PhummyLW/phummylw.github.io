@@ -670,5 +670,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T12:13:39.483Z"
+  },
+  {
+    "name": "Quasi",
+    "picks": [
+      {
+        "id": 2,
+        "name": "Franklin D. Roosevelt",
+        "country": "USA",
+        "years": "1933-45",
+        "cost": 5
+      },
+      {
+        "id": 8,
+        "name": "Winston Churchill",
+        "country": "UK",
+        "years": "1940-55",
+        "cost": 4
+      },
+      {
+        "id": 22,
+        "name": "Joseph Stalin",
+        "country": "USSR",
+        "years": "1924-53",
+        "cost": 1
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T13:21:17.310Z"
   }
 ]
