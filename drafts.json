@@ -306,5 +306,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T06:08:15.830Z"
+  },
+  {
+    "name": "Happy",
+    "picks": [
+      {
+        "id": 5,
+        "name": "Lee Kuan Yew",
+        "country": "Singapore",
+        "years": "1959-90",
+        "cost": 5
+      },
+      {
+        "id": 12,
+        "name": "Genghis Khan",
+        "country": "Mongolia",
+        "years": "1206-27",
+        "cost": 3
+      },
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T06:29:10.457Z"
   }
 ]
