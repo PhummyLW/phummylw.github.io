@@ -642,5 +642,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T11:51:38.637Z"
+  },
+  {
+    "name": "Roengoer",
+    "picks": [
+      {
+        "id": 19,
+        "name": "Mao Zedong",
+        "country": "China",
+        "years": "1949-76",
+        "cost": 2
+      },
+      {
+        "id": 7,
+        "name": "Mustafa Kemal Ataturk",
+        "country": "Turkey",
+        "years": "1923-38",
+        "cost": 4
+      },
+      {
+        "id": 8,
+        "name": "Winston Churchill",
+        "country": "UK",
+        "years": "1940-55",
+        "cost": 4
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T12:13:39.483Z"
   }
 ]
