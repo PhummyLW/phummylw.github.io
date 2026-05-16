@@ -54,5 +54,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T02:13:54.442Z"
+  },
+  {
+    "name": "Logan",
+    "picks": [
+      {
+        "id": 5,
+        "name": "Lee Kuan Yew",
+        "country": "Singapore",
+        "years": "1959-90",
+        "cost": 5
+      },
+      {
+        "id": 7,
+        "name": "Mustafa Kemal Ataturk",
+        "country": "Turkey",
+        "years": "1923-38",
+        "cost": 4
+      },
+      {
+        "id": 25,
+        "name": "Vladimir Putin",
+        "country": "Russia",
+        "years": "2000-present",
+        "cost": 1
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T02:17:04.204Z"
   }
 ]
