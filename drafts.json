@@ -810,5 +810,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T20:12:04.462Z"
+  },
+  {
+    "name": "Teamname",
+    "picks": [
+      {
+        "id": 5,
+        "name": "Lee Kuan Yew",
+        "country": "Singapore",
+        "years": "1959-90",
+        "cost": 5
+      },
+      {
+        "id": 24,
+        "name": "Pol Pot",
+        "country": "Cambodia",
+        "years": "1975-79",
+        "cost": 1
+      },
+      {
+        "id": 6,
+        "name": "Mahatma Gandhi",
+        "country": "India",
+        "years": "1915-48",
+        "cost": 4
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T22:30:04.045Z"
   }
 ]
