@@ -26,33 +26,5 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T01:51:21.219Z"
-  },
-  {
-    "name": "u",
-    "picks": [
-      {
-        "id": 9,
-        "name": "Julius Caesar",
-        "country": "Rome",
-        "years": "49-44 BC",
-        "cost": 4
-      },
-      {
-        "id": 8,
-        "name": "Winston Churchill",
-        "country": "UK",
-        "years": "1940-55",
-        "cost": 4
-      },
-      {
-        "id": 17,
-        "name": "Henry VIII",
-        "country": "England",
-        "years": "1509-47",
-        "cost": 2
-      }
-    ],
-    "total": 10,
-    "timestamp": "2026-05-16T01:52:15.806Z"
   }
 ]
