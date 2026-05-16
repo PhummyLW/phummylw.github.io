@@ -166,5 +166,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T03:20:33.038Z"
+  },
+  {
+    "name": "Bron789",
+    "picks": [
+      {
+        "id": 16,
+        "name": "Cleopatra",
+        "country": "Egypt",
+        "years": "51-30 BC",
+        "cost": 2
+      },
+      {
+        "id": 10,
+        "name": "Marcus Aurelius",
+        "country": "Rome",
+        "years": "161-180",
+        "cost": 4
+      },
+      {
+        "id": 7,
+        "name": "Mustafa Kemal Ataturk",
+        "country": "Turkey",
+        "years": "1923-38",
+        "cost": 4
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T03:26:35.510Z"
   }
 ]
