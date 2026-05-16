@@ -138,5 +138,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T02:41:23.411Z"
+  },
+  {
+    "name": "Jakob",
+    "picks": [
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      },
+      {
+        "id": 5,
+        "name": "Lee Kuan Yew",
+        "country": "Singapore",
+        "years": "1959-90",
+        "cost": 5
+      },
+      {
+        "id": 11,
+        "name": "Napoleon Bonaparte",
+        "country": "France",
+        "years": "1804-14",
+        "cost": 3
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T03:20:33.038Z"
   }
 ]
