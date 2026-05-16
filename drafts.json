@@ -82,5 +82,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T02:17:04.204Z"
+  },
+  {
+    "name": "educational-pay",
+    "picks": [
+      {
+        "id": 5,
+        "name": "Lee Kuan Yew",
+        "country": "Singapore",
+        "years": "1959-90",
+        "cost": 5
+      },
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      },
+      {
+        "id": 11,
+        "name": "Napoleon Bonaparte",
+        "country": "France",
+        "years": "1804-14",
+        "cost": 3
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T02:22:22.717Z"
   }
 ]
