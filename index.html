@@ -516,7 +516,7 @@ body {
 }
 
 .summary-team.exact-summary {
-  background: #fffef0;
+  background: #fff;
 }
 
 .summary-team.average-summary {
@@ -1224,7 +1224,7 @@ async function loadSummary() {
       <div class="method-badge">METHOD 1 · MATHEMATICAL BEST FIT</div>
       <h3>BEST-FIT AVERAGE DRAFT</h3>
       <div class="summary-explain">
-        Searches every possible legal 3-leader team at $10 or less, then chooses the team with the highest combined individual pick frequency.
+        Searches every possible legal 3-leader team at $10 or less, then chooses the team with the highest combined individual pick frequency. Ties are not broken by cost.
       </div>
       <div class="summary-picks">
         ${renderLeaderCards(avgTeam, counts, validDrafts)}
@@ -1339,8 +1339,7 @@ function calculateAverageTeam(counts) {
             candidate.score > best.score ||
             (candidate.score === best.score && candidate.spreadScore > best.spreadScore) ||
             (candidate.score === best.score && candidate.spreadScore === best.spreadScore && candidate.topPickScore > best.topPickScore) ||
-            (candidate.score === best.score && candidate.spreadScore === best.spreadScore && candidate.topPickScore === best.topPickScore && candidate.total > best.total) ||
-            (candidate.score === best.score && candidate.spreadScore === best.spreadScore && candidate.topPickScore === best.topPickScore && candidate.total === best.total && compareTeamNames(candidate.team, best.team) < 0)) {
+            (candidate.score === best.score && candidate.spreadScore === best.spreadScore && candidate.topPickScore === best.topPickScore && compareTeamNames(candidate.team, best.team) < 0)) {
           best = candidate;
         }
       }
