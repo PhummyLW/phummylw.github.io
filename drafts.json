@@ -26,5 +26,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T01:51:21.219Z"
+  },
+  {
+    "name": "cuddlyaxe",
+    "picks": [
+      {
+        "id": 5,
+        "name": "Lee Kuan Yew",
+        "country": "Singapore",
+        "years": "1959-90",
+        "cost": 5
+      },
+      {
+        "id": 15,
+        "name": "Otto von Bismarck",
+        "country": "Germany",
+        "years": "1871-90",
+        "cost": 3
+      },
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T02:13:54.442Z"
   }
 ]
