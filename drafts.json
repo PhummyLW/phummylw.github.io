@@ -558,5 +558,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-16T08:01:31.577Z"
+  },
+  {
+    "name": "FalkslandsMyBeloved",
+    "picks": [
+      {
+        "id": 15,
+        "name": "Otto von Bismarck",
+        "country": "Germany",
+        "years": "1871-90",
+        "cost": 3
+      },
+      {
+        "id": 14,
+        "name": "Margaret Thatcher",
+        "country": "UK",
+        "years": "1979-90",
+        "cost": 3
+      },
+      {
+        "id": 8,
+        "name": "Winston Churchill",
+        "country": "UK",
+        "years": "1940-55",
+        "cost": 4
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-16T08:02:30.764Z"
   }
 ]
