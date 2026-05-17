@@ -950,5 +950,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-17T16:00:00.704Z"
+  },
+  {
+    "name": "Turment",
+    "picks": [
+      {
+        "id": 3,
+        "name": "Alexander the Great",
+        "country": "Macedon",
+        "years": "336-323 BC",
+        "cost": 5
+      },
+      {
+        "id": 10,
+        "name": "Marcus Aurelius",
+        "country": "Rome",
+        "years": "161-180",
+        "cost": 4
+      },
+      {
+        "id": 21,
+        "name": "Adolf Hitler",
+        "country": "Germany",
+        "years": "1933-45",
+        "cost": 1
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-17T16:00:49.930Z"
   }
 ]
