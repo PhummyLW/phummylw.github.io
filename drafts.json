@@ -866,5 +866,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-17T07:58:44.673Z"
+  },
+  {
+    "name": "emmett",
+    "picks": [
+      {
+        "id": 1,
+        "name": "Abraham Lincoln",
+        "country": "USA",
+        "years": "1861-65",
+        "cost": 5
+      },
+      {
+        "id": 25,
+        "name": "Vladimir Putin",
+        "country": "Russia",
+        "years": "2000-present",
+        "cost": 1
+      },
+      {
+        "id": 10,
+        "name": "Marcus Aurelius",
+        "country": "Rome",
+        "years": "161-180",
+        "cost": 4
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-17T08:02:56.020Z"
   }
 ]
