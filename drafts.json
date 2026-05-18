@@ -1034,5 +1034,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-17T17:57:53.750Z"
+  },
+  {
+    "name": "Ben",
+    "picks": [
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      },
+      {
+        "id": 4,
+        "name": "Nelson Mandela",
+        "country": "South Africa",
+        "years": "1994-99",
+        "cost": 5
+      },
+      {
+        "id": 12,
+        "name": "Genghis Khan",
+        "country": "Mongolia",
+        "years": "1206-27",
+        "cost": 3
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-18T03:26:47.969Z"
   }
 ]
