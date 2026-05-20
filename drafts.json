@@ -1202,5 +1202,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-20T17:55:27.836Z"
+  },
+  {
+    "name": "Yingking",
+    "picks": [
+      {
+        "id": 5,
+        "name": "Lee Kuan Yew",
+        "country": "Singapore",
+        "years": "1959-90",
+        "cost": 5
+      },
+      {
+        "id": 11,
+        "name": "Napoleon Bonaparte",
+        "country": "France",
+        "years": "1804-14",
+        "cost": 3
+      },
+      {
+        "id": 16,
+        "name": "Cleopatra",
+        "country": "Egypt",
+        "years": "51-30 BC",
+        "cost": 2
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-20T19:34:57.060Z"
   }
 ]
