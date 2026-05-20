@@ -1230,5 +1230,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-20T19:34:57.060Z"
+  },
+  {
+    "name": "Pk",
+    "picks": [
+      {
+        "id": 10,
+        "name": "Marcus Aurelius",
+        "country": "Rome",
+        "years": "161-180",
+        "cost": 4
+      },
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      },
+      {
+        "id": 8,
+        "name": "Winston Churchill",
+        "country": "UK",
+        "years": "1940-55",
+        "cost": 4
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-20T22:28:34.602Z"
   }
 ]
