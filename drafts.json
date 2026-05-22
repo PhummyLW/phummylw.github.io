@@ -1370,5 +1370,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-21T02:52:57.639Z"
+  },
+  {
+    "name": "Mark",
+    "picks": [
+      {
+        "id": 2,
+        "name": "Franklin D. Roosevelt",
+        "country": "USA",
+        "years": "1933-45",
+        "cost": 5
+      },
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      },
+      {
+        "id": 11,
+        "name": "Napoleon Bonaparte",
+        "country": "France",
+        "years": "1804-14",
+        "cost": 3
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-22T08:34:17.722Z"
   }
 ]
