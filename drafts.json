@@ -1398,5 +1398,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-22T08:34:17.722Z"
+  },
+  {
+    "name": "Meta",
+    "picks": [
+      {
+        "id": 2,
+        "name": "Franklin D. Roosevelt",
+        "country": "USA",
+        "years": "1933-45",
+        "cost": 5
+      },
+      {
+        "id": 7,
+        "name": "Mustafa Kemal Ataturk",
+        "country": "Turkey",
+        "years": "1923-38",
+        "cost": 4
+      },
+      {
+        "id": 23,
+        "name": "Saddam Hussein",
+        "country": "Iraq",
+        "years": "1979-2003",
+        "cost": 1
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-05-25T00:51:06.945Z"
   }
 ]
