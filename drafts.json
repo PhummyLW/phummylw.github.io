@@ -1482,5 +1482,33 @@
     ],
     "total": 10,
     "timestamp": "2026-05-25T19:34:22.131Z"
+  },
+  {
+    "name": "joe",
+    "picks": [
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      },
+      {
+        "id": 5,
+        "name": "Lee Kuan Yew",
+        "country": "Singapore",
+        "years": "1959-90",
+        "cost": 5
+      },
+      {
+        "id": 14,
+        "name": "Margaret Thatcher",
+        "country": "UK",
+        "years": "1979-90",
+        "cost": 3
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-06-01T08:12:27.461Z"
   }
 ]
