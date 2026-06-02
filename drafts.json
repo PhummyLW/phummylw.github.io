@@ -1510,5 +1510,33 @@
     ],
     "total": 10,
     "timestamp": "2026-06-01T08:12:27.461Z"
+  },
+  {
+    "name": "Liam",
+    "picks": [
+      {
+        "id": 2,
+        "name": "Franklin D. Roosevelt",
+        "country": "USA",
+        "years": "1933-45",
+        "cost": 5
+      },
+      {
+        "id": 22,
+        "name": "Joseph Stalin",
+        "country": "USSR",
+        "years": "1924-53",
+        "cost": 1
+      },
+      {
+        "id": 7,
+        "name": "Mustafa Kemal Ataturk",
+        "country": "Turkey",
+        "years": "1923-38",
+        "cost": 4
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-06-02T20:26:24.842Z"
   }
 ]
