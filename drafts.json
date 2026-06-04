@@ -1594,5 +1594,33 @@
     ],
     "total": 10,
     "timestamp": "2026-06-04T01:37:56.919Z"
+  },
+  {
+    "name": "DT",
+    "picks": [
+      {
+        "id": 1,
+        "name": "Abraham Lincoln",
+        "country": "USA",
+        "years": "1861-65",
+        "cost": 5
+      },
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      },
+      {
+        "id": 11,
+        "name": "Napoleon Bonaparte",
+        "country": "France",
+        "years": "1804-14",
+        "cost": 3
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-06-04T01:48:45.705Z"
   }
 ]
