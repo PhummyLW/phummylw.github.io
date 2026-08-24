@@ -1706,5 +1706,33 @@
     ],
     "total": 10,
     "timestamp": "2026-08-23T16:20:46.766Z"
+  },
+  {
+    "name": "chuds",
+    "picks": [
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      },
+      {
+        "id": 10,
+        "name": "Marcus Aurelius",
+        "country": "Rome",
+        "years": "161-180",
+        "cost": 4
+      },
+      {
+        "id": 6,
+        "name": "Mahatma Gandhi",
+        "country": "India",
+        "years": "1915-48",
+        "cost": 4
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-08-24T05:19:40.731Z"
   }
 ]
