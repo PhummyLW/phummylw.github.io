@@ -1734,5 +1734,33 @@
     ],
     "total": 10,
     "timestamp": "2026-08-24T05:19:40.731Z"
+  },
+  {
+    "name": "rolandsga",
+    "picks": [
+      {
+        "id": 5,
+        "name": "Lee Kuan Yew",
+        "country": "Singapore",
+        "years": "1959-90",
+        "cost": 5
+      },
+      {
+        "id": 15,
+        "name": "Otto von Bismarck",
+        "country": "Germany",
+        "years": "1871-90",
+        "cost": 3
+      },
+      {
+        "id": 18,
+        "name": "John F. Kennedy",
+        "country": "USA",
+        "years": "1961-63",
+        "cost": 2
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-09-14T11:27:57.800Z"
   }
 ]
