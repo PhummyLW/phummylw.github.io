@@ -1762,5 +1762,33 @@
     ],
     "total": 10,
     "timestamp": "2026-09-14T11:27:57.800Z"
+  },
+  {
+    "name": "Alexander Ramirez",
+    "picks": [
+      {
+        "id": 15,
+        "name": "Otto von Bismarck",
+        "country": "Germany",
+        "years": "1871-90",
+        "cost": 3
+      },
+      {
+        "id": 11,
+        "name": "Napoleon Bonaparte",
+        "country": "France",
+        "years": "1804-14",
+        "cost": 3
+      },
+      {
+        "id": 10,
+        "name": "Marcus Aurelius",
+        "country": "Rome",
+        "years": "161-180",
+        "cost": 4
+      }
+    ],
+    "total": 10,
+    "timestamp": "2026-10-19T04:35:45.832Z"
   }
 ]
